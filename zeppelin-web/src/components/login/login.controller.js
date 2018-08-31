@@ -17,40 +17,45 @@ angular.module('zeppelinWebApp').controller('LoginCtrl', LoginCtrl);
 function LoginCtrl($scope, $rootScope, $http, $httpParamSerializer, baseUrlSrv, $location, $timeout) {
   'ngInject';
 
-  $scope.SigningIn = false;
-  $scope.loginParams = {};
   $scope.login = function() {
-    $scope.SigningIn = true;
-    $http({
-      method: 'POST',
-      url: baseUrlSrv.getRestApiBase() + '/login',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      data: $httpParamSerializer({
-        'userName': $scope.loginParams.userName,
-        'password': $scope.loginParams.password,
-      }),
-    }).then(function successCallback(response) {
-      $rootScope.ticket = response.data.body;
-      angular.element('#loginModal').modal('toggle');
-      $rootScope.$broadcast('loginSuccess', true);
-      $rootScope.userName = $scope.loginParams.userName;
-      $scope.SigningIn = false;
-
-      // redirect to the page from where the user originally was
-      if ($location.search() && $location.search()['ref']) {
-        $timeout(function() {
-          let redirectLocation = $location.search()['ref'];
-          $location.$$search = {};
-          $location.path(redirectLocation);
-        }, 100);
-      }
-    }, function errorCallback(errorResponse) {
+    if (!$scope.loginParams.userName) {
       $scope.loginParams.errorText = 'The username and password that you entered don\'t match.';
       $scope.SigningIn = false;
-    });
+    } else {
+      $scope.SigningIn = true;
+      $http({
+        method: 'POST',
+        url: baseUrlSrv.getRestApiBase() + '/login',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        data: $httpParamSerializer({
+          'userName': $scope.loginParams.userName,
+          'password': $scope.loginParams.password,
+        }),
+      }).then(function successCallback(response) {
+        $rootScope.ticket = response.data.body;
+        angular.element('#loginModal').modal('toggle');
+        $rootScope.$broadcast('loginSuccess', true);
+        $rootScope.userName = $scope.loginParams.userName;
+        $scope.SigningIn = false;
+
+        // redirect to the page from where the user originally was
+        if ($location.search() && $location.search()['ref']) {
+          $timeout(function() {
+            let redirectLocation = $location.search()['ref'];
+            $location.$$search = {};
+            $location.path(redirectLocation);
+          }, 100);
+        }
+      }, function errorCallback(errorResponse) {
+        $scope.loginParams.errorText = 'The username and password that you entered don\'t match.';
+        $scope.SigningIn = false;
+      });
+    }
   };
+  $scope.SigningIn = false;
+  $scope.loginParams = {};
 
   let initValues = function() {
     $scope.loginParams = {
