@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-mvn clean package -DskipTests -DskipRat
+mvn package -DskipTests -Pspark-2.2 -Pscala-2.11 -Pbuild-distr
