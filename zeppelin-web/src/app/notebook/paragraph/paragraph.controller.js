@@ -157,7 +157,7 @@ function ParagraphCtrl($scope, $rootScope, $route, $window, $routeParams, $locat
     }
 
     if (!config.fontSize) {
-      config.fontSize = 9;
+      config.fontSize = 12;
     }
 
     if (config.enabled === undefined) {
