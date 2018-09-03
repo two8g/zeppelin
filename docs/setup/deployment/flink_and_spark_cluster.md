@@ -321,7 +321,7 @@ Using binaries is also
 To download the Spark Binary use `wget`
 
 ```bash
-wget "http://d3kbcqa49mib13.cloudfront.net/spark-1.6.3-bin-hadoop2.6.tgz"
+wget "https://archive.apache.org/dist/spark/${spark.archive}/spark-1.6.3-bin-hadoop2.6.tgz"
 tar -xzvf spark-1.6.3-bin-hadoop2.6.tgz
 mv spark-1.6.3-bin-hadoop2.6 spark
 ```

@@ -216,8 +216,8 @@ Spark package
 
 ```bash
 spark.archive # default spark-${spark.version}
-spark.src.download.url # default http://d3kbcqa49mib13.cloudfront.net/${spark.archive}.tgz
-spark.bin.download.url # default http://d3kbcqa49mib13.cloudfront.net/${spark.archive}-bin-without-hadoop.tgz
+spark.src.download.url # default https://archive.apache.org/dist/spark/${spark.archive}/${spark.archive}.tgz
+spark.bin.download.url # default https://archive.apache.org/dist/spark/${spark.archive}/${spark.archive}-bin-without-hadoop.tgz
 ```
 
 Py4J package
