@@ -447,6 +447,9 @@ public class InterpreterSettingManager implements InterpreterSettingManagerMBean
         }
       }
     }
+    if (settings.isEmpty()) {
+      settings.addAll(interpreterSettings.values());
+    }
     return settings;
   }
 

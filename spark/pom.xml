@@ -50,10 +50,10 @@
 
         <spark.archive>spark-${spark.version}</spark.archive>
         <spark.src.download.url>
-            https://archive.apache.org/dist/spark/${spark.archive}/${spark.archive}.tgz
+            https://mirrors.tuna.tsinghua.edu.cn/apache/spark/spark-${spark.version}/spark-${spark.version}.tgz
         </spark.src.download.url>
         <spark.bin.download.url>
-            https://archive.apache.org/dist/spark/${spark.archive}/${spark.archive}-bin-without-hadoop.tgz
+            https://mirrors.tuna.tsinghua.edu.cn/apache/spark/spark-${spark.version}/spark-${spark.version}-bin-without-hadoop.tgz
         </spark.bin.download.url>
     </properties>
 
@@ -195,7 +195,7 @@
         <profile>
             <id>spark-2.4</id>
             <properties>
-                <spark.version>2.4.0</spark.version>
+                <spark.version>2.4.3</spark.version>
                 <protobuf.version>2.5.0</protobuf.version>
                 <py4j.version>0.10.7</py4j.version>
             </properties>
