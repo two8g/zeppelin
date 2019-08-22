@@ -336,6 +336,9 @@ public class OldSparkInterpreter extends AbstractSparkInterpreter {
       }
     }
 
+    //set spark.app.name noteId
+    InterpreterContext interpreterContext = InterpreterContext.get();
+    conf.set("spark.app.name", interpreterContext.getNoteId());
     Class SparkSession = Utils.findClass("org.apache.spark.sql.SparkSession");
     Object builder = Utils.invokeStaticMethod(SparkSession, "builder");
     Utils.invokeMethod(builder, "config", new Class[]{ SparkConf.class }, new Object[]{ conf });
