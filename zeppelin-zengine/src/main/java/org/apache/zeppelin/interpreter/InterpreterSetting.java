@@ -807,15 +807,15 @@ public class InterpreterSetting {
     Thread t = new Thread() {
       public void run() {
         try {
-          // dependencies to prevent library conflict
-          File localRepoDir = new File(conf.getInterpreterLocalRepoPath() + "/" + id);
-          if (localRepoDir.exists()) {
-            try {
-              FileUtils.forceDelete(localRepoDir);
-            } catch (FileNotFoundException e) {
-              LOGGER.info("A file that does not exist cannot be deleted, nothing to worry", e);
-            }
-          }
+//          // dependencies to prevent library conflict
+//          File localRepoDir = new File(conf.getInterpreterLocalRepoPath() + "/" + id);
+//          if (localRepoDir.exists()) {
+//            try {
+//              FileUtils.forceDelete(localRepoDir);
+//            } catch (FileNotFoundException e) {
+//              LOGGER.info("A file that does not exist cannot be deleted, nothing to worry", e);
+//            }
+//          }
 
           // load dependencies
           List<Dependency> deps = getDependencies();
