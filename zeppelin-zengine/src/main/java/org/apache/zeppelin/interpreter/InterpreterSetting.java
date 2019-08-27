@@ -681,10 +681,6 @@ public class InterpreterSetting {
     for (InterpreterInfo info : interpreterInfos) {
       Interpreter interpreter = new RemoteInterpreter(intpProperties, sessionId,
           info.getClassName(), user, lifecycleManager);
-      if (group.equals("spark")) {
-        LOGGER.info("set spark Interpreter spark.app.name={}", sessionId);
-        interpreter.properties.put("spark.app.name", sessionId);
-      }
       if (info.isDefaultInterpreter()) {
         interpreters.add(0, interpreter);
       } else {
