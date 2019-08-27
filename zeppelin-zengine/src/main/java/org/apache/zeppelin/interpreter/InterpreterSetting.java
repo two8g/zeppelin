@@ -683,7 +683,8 @@ public class InterpreterSetting {
           info.getClassName(), user, lifecycleManager);
       if (group.equals("spark")) {
         LOGGER.info("set spark Interpreter spark.app.name={}", sessionId);
-        interpreter.properties.put("spark.app.name", String.format("Zeppelin_%s_%s_%s", user, interpreterGroupId, sessionId));
+        String appName = String.format("Zeppelin_%s_%s_%s", user, interpreterGroupId, sessionId);
+        interpreter.properties.put("spark.app.name", appName);
       }
       if (info.isDefaultInterpreter()) {
         interpreters.add(0, interpreter);
