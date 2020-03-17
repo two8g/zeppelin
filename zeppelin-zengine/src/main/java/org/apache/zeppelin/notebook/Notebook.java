@@ -670,7 +670,7 @@ public class Notebook implements NoteEventListener {
           String name2 = note2.getId();
           if (note2.getName() != null) {
             name2 = note2.getName();
-         }
+          }
           return name1.compareTo(name2);
         }
       });
