@@ -268,7 +268,7 @@ public class Notebook implements NoteEventListener {
       List<InterpreterSetting> currentBindings =
           interpreterSettingManager.getInterpreterSettings(id);
       for (InterpreterSetting setting : currentBindings) {
-        if (!interpreterSettingIds.contains(setting.getId())) {
+        if (interpreterSettingIds==null || !interpreterSettingIds.contains(setting.getId())) {
           fireUnbindInterpreter(note, setting);
         }
       }
