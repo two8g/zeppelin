@@ -268,7 +268,7 @@ public class Notebook implements NoteEventListener {
       List<InterpreterSetting> currentBindings =
           interpreterSettingManager.getInterpreterSettings(id);
       for (InterpreterSetting setting : currentBindings) {
-        if (interpreterSettingIds==null || !interpreterSettingIds.contains(setting.getId())) {
+        if (interpreterSettingIds == null || !interpreterSettingIds.contains(setting.getId())) {
           fireUnbindInterpreter(note, setting);
         }
       }
@@ -670,7 +670,7 @@ public class Notebook implements NoteEventListener {
           String name2 = note2.getId();
           if (note2.getName() != null) {
             name2 = note2.getName();
-          }
+         }
           return name1.compareTo(name2);
         }
       });
