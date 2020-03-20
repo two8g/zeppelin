@@ -713,12 +713,14 @@ public class InterpreterSettingManager implements InterpreterSettingManagerMBean
     List<String> oldSettingIdList = interpreterBindings.get(noteId);
     if (oldSettingIdList != null) {
       for (String oldSettingId : oldSettingIdList) {
-        if (!settingIdList.contains(oldSettingId)) {
+        if (settingIdList == null || !settingIdList.contains(oldSettingId)) {
           unBindedSettingIdList.add(oldSettingId);
         }
       }
     }
-    interpreterBindings.put(noteId, settingIdList);
+    if (settingIdList != null) {
+      interpreterBindings.put(noteId, settingIdList);
+    }
     saveToFile();
 
     for (String settingId : unBindedSettingIdList) {
