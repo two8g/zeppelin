@@ -298,6 +298,12 @@ limitations under the License.
       <span ng-if="!revisionView">
         <span class="setting-btn"
               type="button"
+              ng-click="restartSparkInterpreter()"
+              tooltip-placement="bottom" uib-tooltip="Restart spark">
+              <i class="glyphicon glyphicon-refresh btn-md"></i>
+        </span>
+        <span class="setting-btn"
+              type="button"
               data-toggle="modal"
               data-target="#shortcutModal"
               tooltip-placement="bottom" uib-tooltip="List of shortcuts">

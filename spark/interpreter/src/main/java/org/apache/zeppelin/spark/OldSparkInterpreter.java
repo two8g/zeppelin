@@ -794,6 +794,9 @@ public class OldSparkInterpreter extends AbstractSparkInterpreter {
           interpret("import spark.implicits._");
           interpret("import spark.sql");
           interpret("import org.apache.spark.sql.functions._");
+          interpret("import org.apache.spark.sql.types._");
+          interpret("import org.apache.spark.sql.expressions._");
+          interpret("import org.apache.spark.sql._");
         } else {
           if (sparkVersion.oldSqlContextImplicits()) {
             interpret("import sqlContext._");
@@ -801,6 +804,9 @@ public class OldSparkInterpreter extends AbstractSparkInterpreter {
             interpret("import sqlContext.implicits._");
             interpret("import sqlContext.sql");
             interpret("import org.apache.spark.sql.functions._");
+            interpret("import org.apache.spark.sql.types._");
+            interpret("import org.apache.spark.sql.expressions._");
+            interpret("import org.apache.spark.sql._");
           }
         }
       }
